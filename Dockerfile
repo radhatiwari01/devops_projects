@@ -1,8 +1,8 @@
+## Docker file to create base image from NGINX
 FROM nginx
 
-## Step 1:
+#removing the existing index.html file
 RUN rm /usr/share/nginx/html/index.html
 
-## Step 2:
-# Copy source code to working directory
+# Coping new code index.html
 COPY index.html /usr/share/nginx/html
