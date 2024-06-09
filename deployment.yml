@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: colorfulball-container
-        image: andresaaap/simple-index
+        image: radhatiwari/deployk8s_nginx:1.0
         imagePullPolicy: "Always"
         ports:
         - containerPort: 80
