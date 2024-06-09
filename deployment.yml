@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: colorfullBalls
+  labels: 
+    app: Colorful_Balls
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: Colorful_Balls
+  template:
+    metadata:
+      labels:
+        app: Colorful_Balls
+        role: rolling-update
+    spec:
+      containers:
+      - name: colorfulball-container
+        image: andresaaap/simple-index
+        imagePullPolicy: "Always"
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
