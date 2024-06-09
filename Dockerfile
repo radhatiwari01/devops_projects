@@ -1,8 +1,8 @@
-## Docker file to create base image from NGINX
+## -- Docker file to create base image from NGINX
 FROM nginx
 
-#removing the existing index.html file
+## -- Removing the existing index.html file 
 RUN rm /usr/share/nginx/html/index.html
 
-# Coping new code index.html
+## -- Coping new html code index.html
 COPY index.html /usr/share/nginx/html
