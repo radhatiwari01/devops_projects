@@ -1,0 +1,39 @@
+apiversion: apps/v1
+kind: Deployment
+metadata:
+  name: colorballs
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: recreate-demo
+  template:
+    metadata:
+      labels:
+        app: colorballs
+        role: rolling-update
+    spec:
+      containers:
+        - name: recreate-demo
+          image: adamtravis/
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: recreate-demo
+  labels:
+    name: recreate-demo
+spec:
+  ports:
+    - port: 80
+      targetPort: http
+      protocol: TCP
+selector:
+  name: recreate-demo
+type: NodePort

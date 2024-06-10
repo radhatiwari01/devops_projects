@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: colorfullBalls
+  name: colorballs-nginx
   labels: 
-    app: Colorful_Balls
+    app: colorballs
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: Colorful_Balls
+      app: colorballs-app
   template:
     metadata:
       labels:
-        app: Colorful_Balls
+        app: colorballs-app
         role: rolling-update
     spec:
       containers:
-      - name: colorfulball-container
+      - name: colorballs-container
         image: radhatiwari/deployk8s_nginx:1.0
         imagePullPolicy: "Always"
         ports:
