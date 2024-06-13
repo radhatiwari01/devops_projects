@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colorful Balls</title>
+<style>
+    body {
+                background-color: #ADD8E6;
+        text-align: center;
+        font-family: Arial, sans-serif;
+    }
+    #header {
+        margin-bottom: 20px;
+    }
+    #balls-container {
+        display: grid;
+        grid-template-columns: repeat(3, 50px);
+        grid-gap: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+    .ball {
+        width: 50px;
+        height: 50px;
+        background-color: red; /* Change this color to the desired default color */
+        border-radius: 50%;
+    }
+</style>
+</head>
+<body>
+        <h1 id="header">My kubernetes Project</h1>
+        <p>--------------------------------------------------------------------------------</p>
+        <br> </br>
+    <h1 id="header">Colorful Balls</h1>
+
+    <div id="balls-container">
+        <!-- JavaScript will add balls here -->
+    </div>
+
+    <script>
+        // Function to create a ball element
+        function createBall(color) {
+            var ball = document.createElement("div");
+            ball.className = "ball";
+            ball.style.backgroundColor = color;
+            return ball;
+        }
+
+        // Function to change color of all balls
+        function changeBallsColor(color) {
+            var balls = document.getElementsByClassName("ball");
+            for (var i = 0; i < balls.length; i++) {
+                balls[i].style.backgroundColor = color;
+            }
+        }
+
+        // Function to initialize balls
+        function initBalls() {
+            var ballsContainer = document.getElementById("balls-container");
+            var defaultColor = "orange"; // Default color
+            for (var i = 0; i < 9; i++) {
+                var ball = createBall(defaultColor);
+                ballsContainer.appendChild(ball);
+            }
+        }
+
+        // Initialize balls
+        initBalls();
+    </script>
+</body>
+</html>
